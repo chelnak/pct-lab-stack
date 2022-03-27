@@ -1,0 +1,11 @@
+---
+template:
+  id: lab-stack
+  author: chelnak
+  type: project
+  display: Lab Stack
+  version: 0.1.0
+  url: https://github.com/chelnak/pct-lab-stack
+
+lab:
+  owner: chelnak

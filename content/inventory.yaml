@@ -1,0 +1,65 @@
+---
+config:
+  transport: ssh
+  ssh:
+    host-key-check: false
+    run-as: root
+    user: user
+    private-key: ~/.ssh/id_rsa-acceptance
+  winrm:
+    user: user
+    password: Puppetlabs123@
+    ssl: false
+groups:
+  - name: peadm_nodes
+    groups:
+      - name: pe_server
+        targets:
+          - _plugin: terraform
+            dir: .terraform/google_pe_arch
+            resource_type: google_compute_instance.server
+            target_mapping:
+              name: metadata.internalDNS
+              uri: network_interface.0.access_config.0.nat_ip
+      - name: pe_compiler
+        targets:
+          - _plugin: terraform
+            dir: .terraform/google_pe_arch
+            resource_type: google_compute_instance.compiler
+            target_mapping:
+              name: metadata.internalDNS
+              uri: network_interface.0.access_config.0.nat_ip
+      - name: pe_psql
+        targets:
+          - _plugin: terraform
+            dir: .terraform/google_pe_arch
+            resource_type: google_compute_instance.psql
+            target_mapping:
+              name: metadata.internalDNS
+              uri: network_interface.0.access_config.0.nat_ip
+  - name: agent_nodes
+    targets:
+      - _plugin: terraform
+        dir: .terraform/google_pe_arch
+        resource_type: google_compute_instance.node
+        target_mapping:
+          name: metadata.internalDNS
+          uri: network_interface.0.access_config.0.nat_ip
+  - name: nodes
+    targets:
+      - _plugin: terraform
+        dir: terraform/cloud_nodes
+        resource_type: google_compute_instance.node
+        target_mapping:
+          name: metadata.internalDNS
+          uri: network_interface.0.access_config.0.nat_ip
+  - name: win_nodes
+    config:
+      transport: winrm
+    targets:
+      - _plugin: terraform
+        dir: terraform/cloud_nodes
+        resource_type: google_compute_instance.win_node
+        target_mapping:
+          name: metadata.internalDNS
+          uri: network_interface.0.access_config.0.nat_ip

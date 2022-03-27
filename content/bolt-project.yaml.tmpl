@@ -1,0 +1,35 @@
+---
+name: {{.pct.name}}
+modules:
+- puppetlabs/stdlib
+- name: lab_provisioner
+  git: https://github.com/puppetlabs/support-lab_provisioner
+  ref: main
+  resolve: false
+- name: 'puppetlabs-peadm'
+  git: 'https://github.com/puppetlabs/puppetlabs-peadm'
+  ref: 'main'
+
+- name: 'puppetlabs-autope'
+  git: 'https://github.com/jarretlavallee/puppetlabs-autope'
+  ref: 'debugging_kit'
+
+# Temporarily use deploy_pe for agent nodes
+- name: 'jarretlavallee-deploy_pe'
+  git: 'https://github.com/jarretlavallee/puppet-deploy_pe'
+  ref: 'master'
+
+- name: 'terraform-google_pe_arch'
+  git:          'https://github.com/puppetlabs/terraform-google-pe_arch'
+  ref:          'main'
+  install_path: '.terraform'
+
+- name: 'terraform-aws_pe_arch'
+  git:          'https://github.com/puppetlabs/terraform-aws-pe_arch'
+  ref:          'd37d7c0c2d7d15c51026d8a21d01a82a0f9536cb'
+  install_path: '.terraform'
+
+- name: 'terraform-azure_pe_arch'
+  git:          'https://github.com/puppetlabs/terraform-azure-pe_arch'
+  ref:          '6090257405546c214fe11c88512554c7c4ed6dab'
+  install_path: '.terraform'

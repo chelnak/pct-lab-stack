@@ -1,0 +1,39 @@
+moduledir '.modules'
+
+mod 'deploy_pe',
+    git: 'https://github.com/jarretlavallee/puppet-deploy_pe',
+    ref: '679f8f6288063e5a992baa5ea83de901d65cbe5f'
+mod 'autope',
+    git: 'https://github.com/jarretlavallee/puppetlabs-autope',
+    ref: '15338c2d0e2898bbbe88d0ab94084dc7205e87b7'
+mod 'peadm',
+    git: 'https://github.com/puppetlabs/puppetlabs-peadm',
+    ref: '2a75d4a8d7253d845e53fa409921624f2afa3c63'
+mod 'puppetlabs/stdlib', '7.1.0'
+mod 'puppetlabs/bootstrap', '2.1.0'
+mod 'm0dular/sign_cert', '0.1.1'
+mod 'puppetlabs/puppet_conf', '1.2.0'
+mod 'nate/purge_node', '1.4.0'
+mod 'WhatsARanjit/node_manager', '0.7.5'
+mod 'puppetlabs/bolt_shim', '0.4.0'
+mod 'puppetlabs/apply_helpers', '0.3.0'
+mod 'puppet/format', '1.0.0'
+mod 'puppetlabs/service', '2.1.0'
+mod 'lab_provisioner',
+    git: 'https://github.com/puppetlabs/support-lab_provisioner',
+    ref: 'portability_poc'
+
+mod 'terraform-google_pe_arch',
+    git: 'https://github.com/puppetlabs/terraform-google-pe_arch.git',
+    ref: 'main',
+    install_path: '.terraform'
+
+mod 'terraform-aws_pe_arch',
+    git: 'https://github.com/puppetlabs/terraform-aws-pe_arch.git',
+    ref: 'd37d7c0c2d7d15c51026d8a21d01a82a0f9536cb',
+    install_path: '.terraform'
+
+mod 'terraform-azure_pe_arch',
+    git: 'https://github.com/puppetlabs/terraform-azure-pe_arch.git',
+    ref: '6090257405546c214fe11c88512554c7c4ed6dab',
+    install_path: '.terraform'

@@ -1,0 +1,26 @@
+---
+version: 5
+
+defaults:  # Used for any hierarchy level that omits these keys.
+  datadir: data         # This path is relative to hiera.yaml's directory.
+  data_hash: yaml_data  # Use the built-in YAML backend.
+
+hierarchy:
+  - name: 'Custom Configuration'
+    path: 'custom.yaml'
+  - name: 'cd4pe Defaults'
+    path: 'cd4pe.yaml'
+  - name: 'comply Defaults'
+    path: 'comply.yaml'
+  - name: 'Module Defaults'
+    path: 'common.yaml'
+
+plan_hierarchy:
+  - name: 'Custom Configuration'
+    path: 'custom.yaml'
+  - name: 'cd4pe Defaults'
+    path: 'cd4pe.yaml'
+  - name: 'comply Defaults'
+    path: 'comply.yaml'
+  - name: 'Module Defaults'
+    path: 'common.yaml'
