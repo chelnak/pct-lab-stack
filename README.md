@@ -6,7 +6,7 @@ A template for use with the lab stack provisioner.
 
 ```bash
 # Override the owner setting in the template
-echo "lab-stack:\n  owner: <YOUR NAME/USER>" > pct.yml
+echo "owner: <YOUR NAME/USER>" > pct.yml
 
 # Install the template
 pct install --git-uri https://github.com/chelnak/pct-lab-stack
